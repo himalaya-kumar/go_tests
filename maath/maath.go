@@ -19,6 +19,11 @@ func secondsInRadians(t time.Time) float64 {
 	return (math.Pi / (30 / (float64(t.Second()))))
 }
 
-func secondHandInPoints(time time.Time) Point {
-	return Point{0, -1}
+func secondHandInPoints(t time.Time) Point {
+
+	angle := secondsInRadians(t)
+	x := math.Sin(angle)
+	y := math.Cos(angle)
+
+	return Point{x, y}
 }
