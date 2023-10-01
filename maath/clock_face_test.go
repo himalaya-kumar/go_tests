@@ -16,7 +16,7 @@ func TestSecondsInRadians(t *testing.T) {
 		{simpleTime(0, 0, 45), (math.Pi / 2) * 3},
 		{simpleTime(0, 0, 7), (math.Pi / 30) * 7},
 	}
-	for _, c := range cases[:0] {
+	for _, c := range cases[:1] {
 		t.Run(testName(c.time), func(t *testing.T) {
 			got := secondsInRadians(c.time)
 			if got != c.angle {
