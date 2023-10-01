@@ -1,1 +1,1 @@
-# go_tests
+#  Go TESTS [![Build](https://github.com/himalaya-kumar/go_tests/blob/main/.github/workflows/go.yml/badge.svg?branch=main)](https://github.com/himalaya-kumar/go_tests/blob/main/.github/workflows/go.yml)
