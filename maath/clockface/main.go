@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	t := time.Now()
 	sh := clockface.SecondHand(t)
 	io.WriteString(os.Stdout, svgStart)
@@ -20,7 +19,7 @@ func main() {
 }
 
 func secondHandTag(p clockface.Point) string {
-	return fmt.Sprintf(`<line x1="150" y1="150" x2="%f" y2="%f" style="fill:none;stroke:#f00;stroke-width:3px;">God god</line>`, p.X, p.Y)
+	return fmt.Sprintf(`<line x1="150" y1="150" x2="%f" y2="%f" style="fill:none;stroke:#f00;stroke-width:3px;"/>`, p.X, p.Y)
 }
 
 const svgStart = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -34,3 +33,4 @@ const svgStart = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 const bezel = `<circle cx="150" cy="150" r="100" style="fill:#fff;stroke:#000;stroke-width:5px;"/>`
 
 const svgEnd = `</svg>`
+
