@@ -2,6 +2,7 @@ package clockface
 
 import (
 	"math"
+	"strings"
 	"testing"
 	"time"
 )
@@ -46,6 +47,28 @@ func TestSecondHandVector(t *testing.T) {
 
 }
 
+func TestSecondHandAt30Seconds(t *testing.T) {
+
+	tm := time.Date(1337, time.January, 1, 0, 0, 30, 0, time.UTC)
+	want := Point{X: 150, Y: 150 + 90}
+	got := SecondHand(tm)
+	if got != want {
+		t.Errorf("Got %v, Want %v", got, want)
+	}
+}
+func TestSVGWriterAtMidnight(t *testing.T) {
+	tm := time.Date(1337, time.January, 1, 0, 0, 0, 0, time.UTC)
+
+	var b strings.Builder
+	SVGWriter(&b, tm)
+	got := b.String()
+
+	want := `<line x1="150" y1="150" x2="150" y2="60"`
+
+	if !strings.Contains(got, want) {
+		t.Errorf("Expected to find the second hand %v, in the SVG output %v", want, got)
+	}
+}
 func simpleTime(hours, mintues, seconds int) time.Time {
 	return time.Date(312, time.October, 28, hours, mintues, seconds, 0, time.UTC)
 }
